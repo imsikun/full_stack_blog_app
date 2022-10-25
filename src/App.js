@@ -14,6 +14,8 @@ import Write from './pages/Write';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+import './styles.scss';
+
 //creating a separate component and passing the parent and children routes
 
 const Layout = () => {
@@ -36,11 +38,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/single-post',
+        path: '/post/:id',
         element: <Single_post />,
       },
       {
-        path: '/write-post',
+        path: '/write',
         element: <Write />,
       },
     ],
@@ -54,19 +56,21 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: '/write-post',
+    path: '/write',
     element: <Write />,
   },
   {
-    path: '/single-post',
+    path: '/post',
     element: <Single_post />,
   },
 ]);
 
 function App() {
   return (
-    <div className="App">
-      <RouterProvider router={router} />
+    <div className='app'>
+      <div className='container'>
+        <RouterProvider router={router} />
+      </div>
     </div>
   );
 }
